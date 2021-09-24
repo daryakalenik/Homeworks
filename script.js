@@ -25,6 +25,7 @@ switch (dayOfWeek) {
     break;
   case `7`:
     console.log(`Sunday`);
+    break;
   default:
     console.log(`Incorrect day`);
 }
