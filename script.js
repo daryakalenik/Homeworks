@@ -79,5 +79,5 @@ let userNumberTaskFourth = +prompt(`Enter a number`);
 let secondSyllable = `ика`;
 let firstSyllable = `за`;
 let counterTaskFourth = 0;
-for (; counterTaskFourth < userNumberTaskFourth; counterTaskFourth++) {}
-console.log(firstSyllable.repeat(counterTaskFourth) + secondSyllable);
+
+console.log(firstSyllable.repeat(userNumberTaskFourth) + secondSyllable);
