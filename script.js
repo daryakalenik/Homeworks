@@ -78,6 +78,5 @@ if (userNumberTaskThree === null) {
 let userNumberTaskFourth = +prompt(`Enter a number`);
 let secondSyllable = `ика`;
 let firstSyllable = `за`;
-let counterTaskFourth = 0;
 
 console.log(firstSyllable.repeat(userNumberTaskFourth) + secondSyllable);
