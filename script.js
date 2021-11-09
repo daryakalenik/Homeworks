@@ -7,10 +7,9 @@
 //  При нажатии на кнопку без бомбы должен выводится
 // alert с надписью «ПРОНЕСЛО»
 
-const bombs = document.getElementsByClassName(`dangerous`);
-const notBomb = document.getElementsByClassName(`safe`)[0];
-const firstBomb = bombs[0];
-const secondBomb = bombs[1];
+const bombs = [...document.getElementsByClassName(`bomb`)];
+
+const randomBombIndex = Math.floor(Math.random() * bombs.length);
 
 const doesNotExplode = () => {
   alert(`CONGRATS, YOU DIDN'T EXPLODE!`);
@@ -18,13 +17,17 @@ const doesNotExplode = () => {
 
 const explode = (event) => {
   alert(`BOOM!`);
-  if (event.currentTarget === firstBomb) {
-    firstBomb.style.backgroundImage = `url("00ae53a95ee7af0be395f5291d792c9a.gif")`;
-  } else if (event.currentTarget === secondBomb) {
-    secondBomb.style.backgroundImage = `url("00ae53a95ee7af0be395f5291d792c9a.gif")`;
+  if (event.currentTarget === bombs[0]) {
+    bombs[0].style.backgroundImage = `url("00ae53a95ee7af0be395f5291d792c9a.gif")`;
+  } else if (event.currentTarget === bombs[1]) {
+    bombs[1].style.backgroundImage = `url("00ae53a95ee7af0be395f5291d792c9a.gif")`;
+  } else if (event.currentTarget === bombs[2]) {
+    bombs[2].style.backgroundImage = `url("00ae53a95ee7af0be395f5291d792c9a.gif")`;
   }
 };
 
-notBomb.addEventListener(`click`, doesNotExplode);
-firstBomb.addEventListener(`click`, explode);
-secondBomb.addEventListener(`click`, explode);
+bombs.forEach((element, index) => {
+  if (index === randomBombIndex) {
+    element.addEventListener(`click`, doesNotExplode);
+  } else element.addEventListener(`click`, explode);
+});
